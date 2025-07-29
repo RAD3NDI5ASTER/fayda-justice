@@ -1,0 +1,23 @@
+# Start from the official Go image
+FROM golang:1.22
+
+# Set working directory
+WORKDIR /app
+
+# Copy go.mod and go.sum files
+COPY backend/go.mod backend/go.sum ./
+
+# Download dependencies
+RUN go mod download
+
+# Copy the entire backend code
+COPY backend/ .
+
+# Build the Go app
+RUN go build -o server main.go
+
+# Expose port (change if needed)
+EXPOSE 8080
+
+# Run the app
+CMD ["./server"]
