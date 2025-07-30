@@ -1,0 +1,9 @@
+# Node.js
+/frontend/node_modules
+
+# Go
+/backend/.env
+/backend/db
+*.exe
+*.out
+*.log
