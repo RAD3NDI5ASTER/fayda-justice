@@ -1,39 +1,35 @@
+
+
 package main
 
 import (
-	"fmt"
-	"log"
-	"os"
+    "github.com/RAD3NDI5ASTER/fayda-justice/auth"
 
-	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
-
-	"github.com/RAD3NDI5ASTER/fayda-justice/backend/route"
+    "github.com/joho/godotenv"
+    "log"
+    "net/http"
+    "os"
 )
 
 func main() {
-	// Load .env file
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("❌ Error loading .env file")
-	}
+    // Load .env file for env vars
+    if err := godotenv.Load(); err != nil {
+        log.Fatalf("Error loading .env: %v", err)
+    }
 
-	// Read port from .env or use default
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080" // fallback port
-	}
+    // Setup routes for authentication
+    http.HandleFunc("/auth/login", auth.LoginHandler)
+    http.HandleFunc("/auth/callback", auth.CallbackHandler)
 
-	// Initialize Gin
-	router := gin.Default()
+    // Get port from environment or default to 8080
+    port := os.Getenv("PORT")
+    if port == "" {
+        port = "8080"
+    }
 
-	// Initialize routes
-	route.SetupRoutes(router)
-
-	// Start server
-	fmt.Printf("🚀 Server running on http://localhost:%s\n", port)
-	err = router.Run(":" + port)
-	if err != nil {
-		log.Fatalf("❌ Failed to start server: %v", err)
-	}
+    log.Printf("Server started on :%s", port)
+    // Start HTTP server
+    if err := http.ListenAndServe(":"+port, nil); err != nil {
+        log.Fatalf("Server error: %v", err)
+    }
 }
