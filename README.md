@@ -1,13 +1,9 @@
-# fayda-justice
-Digital Court &amp; Legal Services Tracker using Fayda ID
-
-
 # FaydaJustice – Digital Court & Legal Services Tracker
 
-##  Contributor
+##  Contributors
 - Rahel Shimels
 
-## Project Synopsis
+##  Project Synopsis
 
 ###  Problem Statement
 Ethiopia's legal and court systems are largely paper-based, leading to:
@@ -22,6 +18,8 @@ FaydaJustice is a secure web-based platform that allows:
 - **Court officials** to manage and view digital case records
 - **All users** to track court dates, case types, progress, and outcomes
 - A **central dashboard** with filters (region, court type, pending/resolved)
+- **Criminal files will be securely attached to individuals with police records** to ensure traceability and prevent fraud
+- **Deletion of criminal records without authorization is prevented** to maintain justice and accountability
 
 We will simulate/mock legal case data for demo purposes in the hackathon.
 
@@ -38,23 +36,24 @@ We will simulate/mock legal case data for demo purposes in the hackathon.
 
 ##  Tech Stack
 
-| Component         | Technology                      |
-|-------------------|----------------------------------|
-| Frontend          | React.js, TailwindCSS           |
-| Backend API       | Go (Golang)                     |
-| Authentication    | VeriFayda OIDC Integration (via Go) |
-| Database          | PostgreSQL                      |
-| Charts / Dashboard| Chart.js, Recharts              |
-| Hosting           | Vercel (frontend), Render or Railway (backend) |
-| Version Control   | Git + GitHub                    |
+| Component      | Technology |
+|----------------|------------|
+| Frontend       | React.js,Next.js 15,TypeScript, Tailwind CSS,CSS |
+| Backend        | GO ( GOLANG) |
+| Authentication | VeriFayda OIDC Integration |
+| Database       | PostgreSQL  |
+| Version Control| Git + GitHub |
 
-## Key Features
+##  Key Features
 - Fayda-based secure login
 - Dashboard with real-time court statistics
 - Case tracking by region, type, and status
 - Admin and Citizen views
+- Files attached to verified individuals with police/criminal records
+- Protection against unauthorized deletion of criminal files
 - Privacy-respecting: Only mock/demo data used
 
-
+##  Hackathon Notes
+This project is developed for the **Fayda Hackathon 2025** and will be extended if selected for the in-person round.
 
 
